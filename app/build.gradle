@@ -22,9 +22,22 @@ android {
     }
 
     buildTypes {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def spotify_client_id = properties.getProperty('spotify_client_id')
+        def spotify_client_secret = properties.getProperty('spotify_client_secret')
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            buildConfigField "String", "SPOTIFY_CLIENT_ID", spotify_client_id
+            buildConfigField "String", "SPOTIFY_CLIENT_SECRET", spotify_client_secret
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SPOTIFY_CLIENT_ID", spotify_client_id
+            buildConfigField "String", "SPOTIFY_CLIENT_SECRET", spotify_client_secret
         }
     }
     compileOptions {
@@ -49,6 +62,9 @@ kapt {
 }
 
 dependencies {
+    implementation project(':spotify-app-remote')
+    implementation Libs.Spotify.auth
+
     implementation Libs.Kotlin.stdlib
     implementation Libs.Coroutines.android
 

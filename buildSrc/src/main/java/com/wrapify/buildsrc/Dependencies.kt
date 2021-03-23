@@ -8,6 +8,11 @@ object Libs {
     const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha08"
     const val material = "com.google.android.material:material:1.1.0"
 
+    object Spotify {
+        private const val version = "1.1.0"
+        const val auth = "com.spotify.android:auth:$version"
+    }
+
     object Accompanist {
         private const val version = "0.6.0"
         const val coil = "dev.chrisbanes.accompanist:accompanist-coil:$version"
