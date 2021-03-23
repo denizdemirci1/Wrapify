@@ -1,0 +1,87 @@
+import com.wrapify.buildsrc.Libs
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.wrapify"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Libs.AndroidX.Compose.version
+    }
+}
+
+kapt {
+    generateStubs = true
+    correctErrorTypes true
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Coroutines.android
+
+    implementation Libs.Coroutines.core
+
+    implementation Libs.DaggerHilt.hilt
+    kapt Libs.DaggerHilt.hiltCompiler
+    implementation Libs.DaggerHilt.androidXHilt
+    kapt Libs.DaggerHilt.androidXHiltCompiler
+
+    implementation Libs.Network.retrofit
+    implementation Libs.Network.converter
+    implementation Libs.Network.okhttp
+    implementation Libs.Network.interceptor
+
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.Activity.activityCompose
+    implementation Libs.AndroidX.Lifecycle.viewModelCompose
+    implementation Libs.AndroidX.ConstraintLayout.constraintLayoutCompose
+
+    implementation Libs.material
+
+    implementation Libs.AndroidX.Compose.runtime
+    implementation Libs.AndroidX.Compose.foundation
+    implementation Libs.AndroidX.Compose.layout
+    implementation Libs.AndroidX.Compose.ui
+    implementation Libs.AndroidX.Compose.uiUtil
+    implementation Libs.AndroidX.Compose.material
+    implementation Libs.AndroidX.Compose.animation
+    implementation Libs.AndroidX.Compose.iconsExtended
+    implementation Libs.AndroidX.Compose.tooling
+
+    implementation Libs.Accompanist.coil
+    implementation Libs.Accompanist.insets
+}
