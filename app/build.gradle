@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -66,8 +67,10 @@ dependencies {
     implementation Libs.Spotify.auth
 
     implementation Libs.Kotlin.stdlib
-    implementation Libs.Coroutines.android
 
+    implementation Libs.Navigation.navigation
+
+    implementation Libs.Coroutines.android
     implementation Libs.Coroutines.core
 
     implementation Libs.DaggerHilt.hilt

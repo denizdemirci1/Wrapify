@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Wrapify</string>
+
+    <string name="text_splash">Splash</string>
+    <string name="text_home">Home</string>
+    <string name="text_listing">Listing</string>
 </resources>

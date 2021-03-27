@@ -10,6 +10,7 @@ buildscript {
     dependencies {
         classpath Libs.androidGradlePlugin
         classpath Libs.Kotlin.gradlePlugin
+        classpath Libs.DaggerHilt.gradlePlugin
     }
 }
 
@@ -33,7 +34,7 @@ subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             jvmTarget = '1.8'
-            allWarningsAsErrors = true
+            allWarningsAsErrors = false
             // Opt-in to experimental compose APIs
             freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
             // Enable experimental coroutines APIs, including collectAsState()
