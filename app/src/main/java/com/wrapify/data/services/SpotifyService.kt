@@ -14,14 +14,14 @@ interface SpotifyService {
     @GET("me/top/artists")
     suspend fun fetchTopArtists(
         @Query("time_range") timeRange: String?,
-        @Query("limit") limit: Int = 20,
+        @Query("limit") limit: Int = 50,
         @Query("offset") offset: Int,
     ): TopArtistsResponse
 
     @GET("me/top/tracks")
     suspend fun fetchTopTracks(
         @Query("time_range") timeRange: String?,
-        @Query("limit") limit: Int = 20,
+        @Query("limit") limit: Int = 50,
         @Query("offset") offset: Int,
     ): TopTracksResponse
 }
