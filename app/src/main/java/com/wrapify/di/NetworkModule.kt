@@ -1,6 +1,9 @@
 package com.wrapify.di
 
+import com.wrapify.data.remote.util.SpotifyInterceptor
 import com.wrapify.data.services.SpotifyService
+import com.wrapify.util.UserManager
+import com.wrapify.util.storage.Storage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,12 +20,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(storage: Storage): OkHttpClient {
         return OkHttpClient.Builder().apply {
             retryOnConnectionFailure(true)
             addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
+            addInterceptor(SpotifyInterceptor(UserManager(storage)))
         }.build()
     }
 

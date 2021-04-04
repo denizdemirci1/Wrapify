@@ -1,35 +1,40 @@
 package com.wrapify.ui.listing
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.navigate
-import com.wrapify.R
+import com.wrapify.model.wrapify.TopItem
+import com.wrapify.ui.component.CircularLoading
+import com.wrapify.ui.component.WrapifyItem
 
 @Composable
 fun Listing(
-    navController: NavHostController,
-    type: String,
-    toggleTheme: () -> Unit
+    listingViewModel: ListingViewModel,
+    type: String
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center,
+    when (type) {
+        "Tracks" -> listingViewModel.getTopTracks()
+        "Artists" -> listingViewModel.getTopArtists()
+    }
 
-        ) {
-        Text(text = type)
+    when (val event = listingViewModel.event.value) {
+        ListingViewEvent.OnInitialState -> CircularLoading()
+        is ListingViewEvent.OnTopArtistsFetched -> TopItems(list = event.list)
+        is ListingViewEvent.OnTopTracksFetched -> TopItems(list = event.list)
+        is ListingViewEvent.OnError -> Unit
+    }
+}
+
+@Composable
+fun TopItems(
+    list: List<TopItem>
+) {
+    LazyColumn {
+        itemsIndexed(list) { index, item ->
+            WrapifyItem(
+                item,
+                index
+            )
+        }
     }
 }
