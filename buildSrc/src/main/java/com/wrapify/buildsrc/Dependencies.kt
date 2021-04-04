@@ -5,7 +5,7 @@ object Versions {
 }
 
 object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha08"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha12"
     const val material = "com.google.android.material:material:1.1.0"
 
     object Spotify {
@@ -26,6 +26,11 @@ object Libs {
         const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
     }
 
+    object Navigation {
+        private const val version = "1.0.0-alpha09"
+        const val navigation = "androidx.navigation:navigation-compose:$version"
+    }
+
     object Coroutines {
         private const val version = "1.4.1"
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
@@ -36,6 +41,7 @@ object Libs {
     object DaggerHilt {
         private const val dagger_hilt_version = "2.28.3-alpha"
         private const val androidx_hilt_version = "1.0.0-alpha02"
+        const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
         const val hilt = "com.google.dagger:hilt-android:$dagger_hilt_version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
         const val androidXHilt = "androidx.hilt:hilt-lifecycle-viewmodel:$androidx_hilt_version"
@@ -64,6 +70,7 @@ object Libs {
             const val ui = "androidx.compose.ui:ui:${version}"
             const val uiUtil = "androidx.compose.ui:ui-util:${version}"
             const val runtime = "androidx.compose.runtime:runtime:${version}"
+            const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
             const val material = "androidx.compose.material:material:${version}"
             const val animation = "androidx.compose.animation:animation:${version}"
             const val tooling = "androidx.compose.ui:ui-tooling:${version}"
