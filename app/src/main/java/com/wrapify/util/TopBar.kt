@@ -7,6 +7,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -20,8 +21,11 @@ fun TopBar(onToggle: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column {
             Text(
                 text = "Welcome to Wrapify,",
                 textAlign = TextAlign.Start,
@@ -38,11 +42,9 @@ fun TopBar(onToggle: () -> Unit) {
                 color = MaterialTheme.colors.surface
             )
         }
-        Row(
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(0.dp, 24.dp, 36.dp, 0.dp),
-            horizontalArrangement = Arrangement.End
+                .padding(end = 16.dp)
         ) {
             WigglesThemeSwitch(onToggle = { onToggle() })
         }

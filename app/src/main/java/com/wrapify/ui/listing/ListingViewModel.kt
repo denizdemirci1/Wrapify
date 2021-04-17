@@ -10,12 +10,15 @@ import com.wrapify.data.remote.util.parseNetworkError
 import com.wrapify.data.repositories.PersonalizationRepository
 import com.wrapify.model.util.Result
 import com.wrapify.util.extensions.data.toTopItemList
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val MEDIUM_TERM = "medium_term"
 private const val OFFSET = 0
 
-class ListingViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ListingViewModel @Inject constructor(
     private val repository: PersonalizationRepository
 ) : ViewModel() {
 

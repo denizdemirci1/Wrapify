@@ -25,7 +25,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
-    private val listingViewModel: ListingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             WrapifyTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    WrapifyMain(toggleTheme, viewModel, listingViewModel)
+                    WrapifyMain(toggleTheme, viewModel)
                 }
             }
         }

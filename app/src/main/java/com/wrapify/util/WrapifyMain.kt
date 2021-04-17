@@ -11,14 +11,12 @@ import com.wrapify.navigation.Screen
 import com.wrapify.ui.home.Home
 import com.wrapify.ui.home.util.HomeCategories
 import com.wrapify.ui.listing.Listing
-import com.wrapify.ui.listing.ListingViewModel
 import com.wrapify.ui.splash.Splash
 
 @Composable
 fun WrapifyMain(
     toggleTheme: () -> Unit,
-    mainViewModel: MainViewModel,
-    listingViewModel: ListingViewModel
+    mainViewModel: MainViewModel
 ) {
     val navController = rememberNavController()
     NavHost(navController, startDestination = Screen.Splash.route) {
@@ -33,7 +31,6 @@ fun WrapifyMain(
             arguments = listOf(navArgument("type") { type = NavType.StringType })
         ) {
             Listing(
-                listingViewModel,
                 it.arguments?.getString("type").orEmpty()
             )
         }

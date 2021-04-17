@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_light_off.xml" value="0.1425925925925926" />
+        <entry key="app/src/main/res/drawable/ic_light_on.xml" value="0.1425925925925926" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.24166666666666667" />
       </map>
     </option>

@@ -39,13 +39,15 @@ object Libs {
     }
 
     object DaggerHilt {
-        private const val dagger_hilt_version = "2.28.3-alpha"
+        private const val dagger_hilt_version = "2.33-beta"
         private const val androidx_hilt_version = "1.0.0-alpha02"
+        private const val hilt_navigation_version = "1.0.0-alpha01"
         const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
         const val hilt = "com.google.dagger:hilt-android:$dagger_hilt_version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
         const val androidXHilt = "androidx.hilt:hilt-lifecycle-viewmodel:$androidx_hilt_version"
         const val androidXHiltCompiler = "androidx.hilt:hilt-compiler:$androidx_hilt_version"
+        const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:$hilt_navigation_version"
     }
 
     object Network {

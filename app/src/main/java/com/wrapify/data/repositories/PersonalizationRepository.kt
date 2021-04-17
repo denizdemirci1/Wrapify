@@ -4,6 +4,7 @@ import com.wrapify.data.remote.datasources.PersonalizationDataSource
 import com.wrapify.model.response.TopArtistsResponse
 import com.wrapify.model.response.TopTracksResponse
 import com.wrapify.model.util.Result
+import javax.inject.Inject
 
 interface PersonalizationRepository {
 
@@ -12,7 +13,7 @@ interface PersonalizationRepository {
     suspend fun fetchTopTracks(timeRange: String?, offset: Int): Result<TopTracksResponse>
 }
 
-class PersonalizationRepositoryImpl(
+class PersonalizationRepositoryImpl @Inject constructor(
     private val personalizationDataSource: PersonalizationDataSource
 ) : PersonalizationRepository {
     override suspend fun fetchTopArtists(
