@@ -5,7 +5,7 @@ object Versions {
 }
 
 object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha12"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:7.1.1"
     const val material = "com.google.android.material:material:1.1.0"
 
     object Spotify {
@@ -39,7 +39,7 @@ object Libs {
     }
 
     object DaggerHilt {
-        private const val dagger_hilt_version = "2.33-beta"
+        private const val dagger_hilt_version = "2.38.1"
         private const val androidx_hilt_version = "1.0.0-alpha02"
         private const val hilt_navigation_version = "1.0.0-alpha01"
         const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
